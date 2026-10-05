@@ -1,67 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="24dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="CampusPulse"
-            android:textSize="28sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Welcome to your campus"
-            android:textSize="16sp"
-            android:layout_marginTop="4dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Upcoming Events"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginTop="32dp" />
-
-        <Button
-            android:id="@+id/btnEvents"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="View Events"
-            android:layout_marginTop="12dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Announcements"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginTop="32dp" />
-
-        <Button
-            android:id="@+id/btnAnnouncements"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="View Announcements"
-            android:layout_marginTop="12dp" />
-
-        <Button
-            android:id="@+id/btnProfile"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="My Profile"
-            android:layout_marginTop="24dp" />
-
-    </LinearLayout>
-
-</ScrollView>
+    android:layout_height="match_parent" />

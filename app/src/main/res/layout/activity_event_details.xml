@@ -4,7 +4,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F5F7FB">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,111 +14,193 @@
         android:orientation="vertical"
         android:padding="24dp">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="CampusPulse"
-            android:textSize="30sp"
-            android:textStyle="bold" />
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Your campus information hub"
-            android:textSize="16sp"
-            android:layout_marginTop="4dp" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Event Details"
+                android:textColor="#12355B"
+                android:textSize="28sp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Upcoming Events"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginTop="32dp" />
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:text="📅"
+                android:textSize="26sp"
+                android:background="#E3F2FD" />
 
+        </LinearLayout>
+
+        <!-- Event card -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            app:cardCornerRadius="12dp">
+            android:layout_marginTop="24dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="3dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="22dp">
 
+                <!-- Event title -->
                 <TextView
+                    android:id="@+id/tvEventTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Student Innovation Day"
-                    android:textSize="18sp"
+                    android:textColor="#12355B"
+                    android:textSize="24sp"
                     android:textStyle="bold" />
 
+                <!-- Description -->
                 <TextView
+                    android:id="@+id/tvEventDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
                     android:text="Technology and innovation event for students."
-                    android:textSize="14sp"
-                    android:layout_marginTop="6dp" />
+                    android:textColor="#607D8B"
+                    android:textSize="15sp"
+                    android:lineSpacingExtra="3dp" />
 
-                <TextView
+                <!-- Divider -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="20dp"
+                    android:background="#E0E6ED" />
+
+                <!-- Date -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Main Campus • 10:00 AM"
-                    android:textSize="14sp"
-                    android:layout_marginTop="6dp" />
+                    android:layout_marginTop="18dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:gravity="center"
+                        android:text="📅"
+                        android:textSize="20sp"
+                        android:background="#E3F2FD" />
+
+                    <TextView
+                        android:id="@+id/tvEventDate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="14dp"
+                        android:text="Date: 15 October 2026"
+                        android:textColor="#455A64"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <!-- Time -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:gravity="center"
+                        android:text="🕐"
+                        android:textSize="20sp"
+                        android:background="#E8F5E9" />
+
+                    <TextView
+                        android:id="@+id/tvEventTime"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="14dp"
+                        android:text="Time: 10:00 AM"
+                        android:textColor="#455A64"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <!-- Location -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:gravity="center"
+                        android:text="📍"
+                        android:textSize="20sp"
+                        android:background="#FFF3E0" />
+
+                    <TextView
+                        android:id="@+id/tvEventLocation"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="14dp"
+                        android:text="Location: Main Campus"
+                        android:textColor="#455A64"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
 
+        <!-- Register button -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnEvents"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="VIEW ALL EVENTS"
-            android:layout_marginTop="16dp"
-            app:cornerRadius="12dp" />
-
-        <TextView
+            android:id="@+id/btnRegisterEvent"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Announcements"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginTop="32dp" />
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            app:cardCornerRadius="12dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Important campus announcements and notices will appear here."
-                android:textSize="15sp"
-                android:padding="16dp" />
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnAnnouncements"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="VIEW ANNOUNCEMENTS"
-            android:layout_marginTop="16dp"
-            app:cornerRadius="12dp" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnProfile"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="MY PROFILE"
+            android:layout_height="58dp"
+            android:layout_gravity="center"
             android:layout_marginTop="24dp"
-            app:cornerRadius="12dp" />
+            android:text="REGISTER FOR EVENT"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:cornerRadius="14dp"
+            app:icon="@android:drawable/ic_menu_add"
+            app:iconGravity="textStart"
+            app:iconPadding="8dp" />
+
+        <!-- Back button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnBackEvents"
+            android:layout_width="wrap_content"
+            android:layout_height="54dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="20dp"
+            android:text="BACK TO EVENTS"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            app:cornerRadius="14dp"
+            app:icon="@android:drawable/ic_menu_revert"
+            app:iconGravity="textStart"
+            app:iconPadding="8dp" />
 
     </LinearLayout>
 

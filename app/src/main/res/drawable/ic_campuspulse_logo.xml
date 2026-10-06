@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="96dp"
+    android:viewportWidth="96"
+    android:viewportHeight="96">
+
+    <!-- Blue circular background -->
+    <path
+        android:fillColor="#1565C0"
+        android:pathData="M48,0A48,48 0,1 0,48,96A48,48 0,1 0,48,0" />
+
+    <!-- Campus building -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M24,42L48,25L72,42L72,68L24,68Z" />
+
+    <!-- Roof -->
+    <path
+        android:fillColor="#E3F2FD"
+        android:pathData="M18,42L48,20L78,42L72,42L48,25L24,42Z" />
+
+    <!-- Building columns -->
+    <path
+        android:fillColor="#1565C0"
+        android:pathData="M31,45L38,45L38,64L31,64Z" />
+
+    <path
+        android:fillColor="#1565C0"
+        android:pathData="M44.5,45L51.5,45L51.5,64L44.5,64Z" />
+
+    <path
+        android:fillColor="#1565C0"
+        android:pathData="M58,45L65,45L65,64L58,64Z" />
+
+    <!-- Door -->
+    <path
+        android:fillColor="#1565C0"
+        android:pathData="M43,56L53,56L53,68L43,68Z" />
+
+    <!-- Pulse line -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M22,75L34,75L39,69L45,79L52,67L58,75L74,75L74,78L57,78L52,73L45,85L39,75L35,78L22,78Z" />
+
+</vector>

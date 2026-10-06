@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+
+    <!-- Calendar body -->
+    <path
+        android:fillColor="#1565C0"
+        android:pathData="M8,6C6.9,6 6,6.9 6,8L6,40C6,41.1 6.9,42 8,42L40,42C41.1,42 42,41.1 42,40L42,8C42,6.9 41.1,6 40,6Z" />
+
+    <!-- White calendar area -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M10,16L38,16L38,38L10,38Z" />
+
+    <!-- Calendar top -->
+    <path
+        android:fillColor="#E3F2FD"
+        android:pathData="M10,10L38,10L38,16L10,16Z" />
+
+    <!-- Calendar rings -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M13,4L17,4L17,12L13,12Z" />
+
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M31,4L35,4L35,12L31,12Z" />
+
+    <!-- Date dots -->
+    <path
+        android:fillColor="#1565C0"
+        android:pathData="M14,21L18,21L18,25L14,25Z" />
+
+    <path
+        android:fillColor="#1565C0"
+        android:pathData="M22,21L26,21L26,25L22,25Z" />
+
+    <path
+        android:fillColor="#1565C0"
+        android:pathData="M30,21L34,21L34,25L30,25Z" />
+
+    <path
+        android:fillColor="#1565C0"
+        android:pathData="M14,29L18,29L18,33L14,33Z" />
+
+    <path
+        android:fillColor="#1565C0"
+        android:pathData="M22,29L26,29L26,33L22,33Z" />
+
+    <path
+        android:fillColor="#1565C0"
+        android:pathData="M30,29L34,29L34,33L30,33Z" />
+
+</vector>

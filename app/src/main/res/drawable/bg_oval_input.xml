@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- White background -->
+    <solid android:color="#FFFFFF" />
+
+    <!-- Light-blue outline -->
+    <stroke
+        android:width="1.5dp"
+        android:color="#90CAF9" />
+
+    <!-- Oval-shaped corners -->
+    <corners android:radius="50dp" />
+
+    <!-- Space inside the input field -->
+    <padding
+        android:left="16dp"
+        android:top="12dp"
+        android:right="16dp"
+        android:bottom="12dp" />
+
+</shape>

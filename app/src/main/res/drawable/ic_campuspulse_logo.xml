@@ -1,46 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="96dp"
-    android:height="96dp"
-    android:viewportWidth="96"
-    android:viewportHeight="96">
 
-    <!-- Blue circular background -->
-    <path
-        android:fillColor="#1565C0"
-        android:pathData="M48,0A48,48 0,1 0,48,96A48,48 0,1 0,48,0" />
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
 
-    <!-- Campus building -->
-    <path
-        android:fillColor="#FFFFFF"
-        android:pathData="M24,42L48,25L72,42L72,68L24,68Z" />
-
-    <!-- Roof -->
+    <!-- Light blue circular background -->
     <path
         android:fillColor="#E3F2FD"
-        android:pathData="M18,42L48,20L78,42L72,42L48,25L24,42Z" />
+        android:pathData="M60,4 A56,56 0,1 0,60 116 A56,56 0,1 0,60 4" />
 
-    <!-- Building columns -->
+    <!-- Campus building roof -->
     <path
         android:fillColor="#1565C0"
-        android:pathData="M31,45L38,45L38,64L31,64Z" />
+        android:pathData="M22,43 L60,22 L98,43 Z" />
 
+    <!-- Building upper structure -->
+    <path
+        android:fillColor="#1976D2"
+        android:pathData="M28,44 L92,44 L92,49 L28,49 Z" />
+
+    <!-- Left pillar -->
+    <path
+        android:fillColor="#1976D2"
+        android:pathData="M33,50 L42,50 L42,76 L33,76 Z" />
+
+    <!-- Middle-left pillar -->
+    <path
+        android:fillColor="#1976D2"
+        android:pathData="M49,50 L58,50 L58,76 L49,76 Z" />
+
+    <!-- Middle-right pillar -->
+    <path
+        android:fillColor="#1976D2"
+        android:pathData="M62,50 L71,50 L71,76 L62,76 Z" />
+
+    <!-- Right pillar -->
+    <path
+        android:fillColor="#1976D2"
+        android:pathData="M78,50 L87,50 L87,76 L78,76 Z" />
+
+    <!-- Building base -->
     <path
         android:fillColor="#1565C0"
-        android:pathData="M44.5,45L51.5,45L51.5,64L44.5,64Z" />
+        android:pathData="M25,76 L95,76 L95,83 L25,83 Z" />
 
+    <!-- Steps -->
+    <path
+        android:fillColor="#64B5F6"
+        android:pathData="M20,84 L100,84 L100,89 L20,89 Z" />
+
+    <!-- Notification bell body -->
+    <path
+        android:fillColor="#90CAF9"
+        android:pathData="M83,22 C83,16 87,12 92,12 C97,12 101,16 101,22 L101,27 C101,31 103,34 106,37 L106,40 L78,40 L78,37 C81,34 83,31 83,27 Z" />
+
+    <!-- Bell clapper -->
     <path
         android:fillColor="#1565C0"
-        android:pathData="M58,45L65,45L65,64L58,64Z" />
+        android:pathData="M86,42 C87,47 97,47 98,42 Z" />
 
-    <!-- Door -->
+    <!-- Notification dot -->
     <path
-        android:fillColor="#1565C0"
-        android:pathData="M43,56L53,56L53,68L43,68Z" />
-
-    <!-- Pulse line -->
-    <path
-        android:fillColor="#FFFFFF"
-        android:pathData="M22,75L34,75L39,69L45,79L52,67L58,75L74,75L74,78L57,78L52,73L45,85L39,75L35,78L22,78Z" />
+        android:fillColor="#1976D2"
+        android:pathData="M103,10 A5,5 0,1 0,103 20 A5,5 0,1 0,103 10" />
 
 </vector>

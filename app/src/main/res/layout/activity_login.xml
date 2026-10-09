@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="CAMPUSPULSE"
-            android:textColor="#0D47A1"
+            android:textColor="#1565C0"
             android:textSize="28sp"
             android:textStyle="bold" />
 
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="EDUCATION"
-            android:textColor="#1565C0"
+            android:textColor="#1976D2"
             android:textSize="15sp"
             android:letterSpacing="0.1" />
     </LinearLayout>
@@ -62,8 +62,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="LOGIN"
-                android:textColor="#1A237E"
+                android:text="Login Into Your Account"
+                android:textColor="#1976D2"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -72,8 +72,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
-                android:text="Username"
-                android:textColor="#1A237E"
+                android:text="Email"
+                android:textColor="#1976D2"
                 android:textSize="13sp"
                 android:textStyle="bold" />
 
@@ -97,7 +97,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
                 android:text="Password"
-                android:textColor="#1A237E"
+                android:textColor="#1976D2"
                 android:textSize="13sp"
                 android:textStyle="bold" />
 
@@ -140,7 +140,7 @@
                 android:layout_gravity="end"
                 android:layout_marginTop="12dp"
                 android:text="Forgot your password?"
-                android:textColor="#00BCD4"
+                android:textColor="#42A5F5"
                 android:textSize="13sp" />
 
             <!-- LOGIN BUTTON -->
@@ -152,7 +152,7 @@
                 android:background="@drawable/login_button_background"
                 android:gravity="center"
                 android:text="LOGIN"
-                android:textColor="#1A237E"
+                android:textColor="#0D47A1"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -164,7 +164,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="22dp"
                 android:text="Don't have an account? Sign Up"
-                android:textColor="#1A237E"
+                android:textColor="#1976D2"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 

@@ -1,144 +1,174 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F4F7FB"
-    android:fillViewport="true">
+    android:background="#F5F7FA">
 
+    <!-- TOP COLORED HEADER -->
+    <View
+        android:id="@+id/headerBackground"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:background="@drawable/login_header_background" />
+
+    <!-- APP NAME ON HEADER -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
-        android:paddingStart="28dp"
-        android:paddingEnd="28dp"
-        android:paddingTop="36dp"
-        android:paddingBottom="36dp">
+        android:layout_marginTop="48dp"
+        android:gravity="center"
+        android:orientation="vertical">
 
-        <!-- CAMPUSPULSE LOGO -->
-        <ImageView
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:contentDescription="CampusPulse Logo"
-            android:src="@drawable/ic_campuspulse_logo" />
-
-        <!-- APP NAME -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
-            android:text="CampusPulse"
-            android:textColor="#000000"
-            android:textSize="30sp"
+            android:text="CAMPUSPULSE"
+            android:textColor="#0D47A1"
+            android:textSize="28sp"
             android:textStyle="bold" />
 
-        <!-- WELCOME -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Welcome back!"
-            android:textColor="#000000"
-            android:textSize="23sp"
-            android:textStyle="bold" />
-
-        <!-- DESCRIPTION -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="7dp"
-            android:gravity="center"
-            android:text="Sign in to continue to your student account"
-            android:textColor="#000000"
-            android:textSize="16sp" />
-
-        <!-- EMAIL FIELD -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:hint="Email address"
-            app:boxBackgroundMode="outline"
-            app:boxStrokeColor="#1565C0"
-            app:boxCornerRadiusTopStart="14dp"
-            app:boxCornerRadiusTopEnd="14dp"
-            app:boxCornerRadiusBottomStart="14dp"
-            app:boxCornerRadiusBottomEnd="14dp"
-            app:startIconDrawable="@drawable/ic_email"
-            app:startIconTint="#1565C0">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etEmail"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:hint="Enter your email"
-                android:inputType="textEmailAddress"
-                android:singleLine="true"
-                android:textColor="#000000"
-                android:textColorHint="#718096"
-                android:textSize="17sp" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- PASSWORD FIELD -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:hint="Password"
-            app:boxBackgroundMode="outline"
-            app:boxStrokeColor="#1565C0"
-            app:boxCornerRadiusTopStart="14dp"
-            app:boxCornerRadiusTopEnd="14dp"
-            app:boxCornerRadiusBottomStart="14dp"
-            app:boxCornerRadiusBottomEnd="14dp"
-            app:startIconDrawable="@drawable/ic_lock"
-            app:startIconTint="#1565C0"
-            app:endIconMode="password_toggle"
-            app:endIconTint="#1565C0">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etPassword"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:hint="Enter your password"
-                android:inputType="textPassword"
-                android:singleLine="true"
-                android:textColor="#000000"
-                android:textColorHint="#718096"
-                android:textSize="17sp" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- LOGIN BUTTON -->
-        <Button
-            android:id="@+id/btnLogin"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="28dp"
-            android:background="#1565C0"
-            android:gravity="center"
-            android:text="LOGIN"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <!-- REGISTER LINK -->
-        <TextView
-            android:id="@+id/tvRegister"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:text="Don't have an account?  Create Account"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
+            android:layout_marginTop="4dp"
+            android:text="EDUCATION"
+            android:textColor="#1565C0"
+            android:textSize="15sp"
+            android:letterSpacing="0.1" />
     </LinearLayout>
 
-</ScrollView>
+    <!-- WHITE LOGIN CARD -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="160dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="10dp"
+        app:cardBackgroundColor="#FFFFFF">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="28dp">
+
+            <!-- LOGIN TITLE -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="LOGIN"
+                android:textColor="#1A237E"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <!-- USERNAME -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:text="Username"
+                android:textColor="#1A237E"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etUsername"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/edittext_background"
+                android:hint="example@email.com"
+                android:inputType="textEmailAddress"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:textColor="#212121"
+                android:textColorHint="#BDBDBD"
+                android:textSize="15sp" />
+
+            <!-- PASSWORD -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="Password"
+                android:textColor="#1A237E"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="6dp">
+
+                <EditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/edittext_background"
+                    android:hint="Enter password"
+                    android:inputType="textPassword"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="48dp"
+                    android:textColor="#212121"
+                    android:textColorHint="#BDBDBD"
+                    android:textSize="15sp" />
+
+                <!-- Eye Icon -->
+                <ImageView
+                    android:id="@+id/ivTogglePassword"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="14dp"
+                    android:src="@android:drawable/ic_menu_view"
+                    app:tint="#757575" />
+
+            </RelativeLayout>
+
+            <!-- FORGOT PASSWORD -->
+            <TextView
+                android:id="@+id/tvForgotPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="12dp"
+                android:text="Forgot your password?"
+                android:textColor="#00BCD4"
+                android:textSize="13sp" />
+
+            <!-- LOGIN BUTTON -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="28dp"
+                android:background="@drawable/login_button_background"
+                android:gravity="center"
+                android:text="LOGIN"
+                android:textColor="#1A237E"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <!-- SIGN UP TEXT -->
+            <TextView
+                android:id="@+id/tvSignUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="22dp"
+                android:text="Don't have an account? Sign Up"
+                android:textColor="#1A237E"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

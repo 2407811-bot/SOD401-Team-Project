@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="#F4F7FB"
+    android:background="#F5F7FA"
     android:padding="32dp">
 
     <!-- CAMPUSPULSE LOGO -->
@@ -22,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="CampusPulse"
-        android:textColor="#000000"
+        android:textColor="#1A237E"
         android:textSize="36sp"
         android:textStyle="bold" />
 
@@ -32,19 +34,20 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:text="Your Campus. Your Community.&#10;Stay Connected."
-        android:textColor="#000000"
-        android:textSize="18sp" />
+        android:text="Your Campus. Your Community.\nStay Connected."
+        android:textColor="#757575"
+        android:textSize="17sp" />
 
-    <!-- TIME / HOURGLASS -->
+    <!-- TIME / HOURGLASS CIRCLE -->
     <TextView
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="28dp"
-        android:background="#E3F2FD"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/circle_background"
         android:gravity="center"
         android:text="⌛"
-        android:textSize="38sp" />
+        android:textSize="36sp"
+        android:textColor="#00BCD4" />
 
     <!-- LOADING MESSAGE -->
     <TextView
@@ -52,14 +55,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:text="Loading CampusPulse..."
-        android:textColor="#000000"
+        android:textColor="#212121"
         android:textSize="16sp" />
 
     <!-- LOADING BAR -->
-    <ProgressBar
-        android:layout_width="42dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="18dp"
-        android:indeterminate="true" />
-
-</LinearLayout>
+    
+</LinearLayout>``

@@ -5,227 +5,337 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F4F7FB"
-    android:fillViewport="true">
+    android:background="#F1F8FF"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="false">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center_horizontal"
-        android:paddingStart="28dp"
-        android:paddingEnd="28dp"
-        android:paddingTop="32dp"
-        android:paddingBottom="36dp">
+        android:paddingBottom="28dp">
 
-        <ImageView
-            android:layout_width="95dp"
-            android:layout_height="95dp"
-            android:contentDescription="CampusPulse Logo"
-            android:src="@drawable/ic_campuspulse_logo" />
+        <!-- LIGHT BLUE HEADER -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="290dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/bg_register_header"
+            android:padding="24dp">
+
+            <!-- CAMPUSPULSE LOGO -->
+
+            <FrameLayout
+                android:layout_width="86dp"
+                android:layout_height="86dp"
+                android:layout_marginBottom="10dp"
+                android:elevation="5dp">
+
+                <ImageView
+                    android:id="@+id/ivCampusPulseLogo"
+                    android:layout_width="68dp"
+                    android:layout_height="68dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_campuspulse_logo"
+                    android:contentDescription="CampusPulse logo"
+                    android:scaleType="fitCenter" />
+
+            </FrameLayout>
+
+            <!-- APP NAME -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="YOUR CAMPUS. YOUR COMMUNITY."
+                android:textColor="#123B63"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:text="Discover events. Stay connected."
+                android:textColor="#24577F"
+                android:textSize="14sp"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+        <!-- REGISTRATION CARD -->
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="18dp"
+            android:layout_marginTop="-28dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="8dp"
+            app:strokeColor="#D9ECFF"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <!-- FORM TITLE -->
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Create your account"
+                    android:textColor="#173F65"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="24dp"
+                    android:text="Join CampusPulse and never miss a campus moment."
+                    android:textColor="#718AA2"
+                    android:textSize="14sp" />
+
+                <!-- FULL NAME LABEL -->
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="Full name"
+                    android:textColor="#315674"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <!-- FULL NAME OVAL FIELD -->
 
 
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter your full name"
+                    app:boxBackgroundMode="none"
+                    app:startIconDrawable="@drawable/ic_person"
+                    app:startIconTint="#3298E8"
+                    app:hintTextColor="#7A9AB5"/>
+
+
+                <!-- FULL NAME INPUT -->
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxBackgroundMode="none">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etFullName"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:background="@drawable/bg_oval_input"
+                        android:drawableStart="@drawable/ic_person"
+                        android:drawablePadding="12dp"
+                        android:drawableTint="#3298E8"
+                        android:hint="Enter your full name"
+                        android:textColor="#173F65"
+                        android:textColorHint="#7A9AB5"
+                        android:textSize="15sp"
+                        android:inputType="textPersonName|textCapWords"
+                        android:singleLine="true"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingTop="12dp"
+                        android:paddingBottom="12dp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <!-- EMAIL INPUT -->
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="19dp"
+                    app:boxBackgroundMode="none">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:background="@drawable/bg_oval_input"
+                        android:drawableStart="@drawable/ic_email"
+                        android:drawablePadding="12dp"
+                        android:drawableTint="#3298E8"
+                        android:hint="you@example.com"
+                        android:textColor="#173F65"
+                        android:textColorHint="#7A9AB5"
+                        android:textSize="15sp"
+                        android:inputType="textEmailAddress"
+                        android:singleLine="true"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingTop="12dp"
+                        android:paddingBottom="12dp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <!-- PASSWORD INPUT -->
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="19dp"
+                    app:boxBackgroundMode="none"
+                    app:endIconMode="password_toggle"
+                    app:endIconTint="#3298E8">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:background="@drawable/bg_oval_input"
+                        android:drawableStart="@drawable/ic_lock"
+                        android:drawablePadding="12dp"
+                        android:drawableTint="#3298E8"
+                        android:hint="Create a strong password"
+                        android:textColor="#173F65"
+                        android:textColorHint="#7A9AB5"
+                        android:textSize="15sp"
+                        android:inputType="textPassword"
+                        android:singleLine="true"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingTop="12dp"
+                        android:paddingBottom="12dp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <!-- PASSWORD TIP -->
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:text="Choose a password that is difficult to guess."
+                    android:textColor="#7892A9"
+                    android:textSize="12sp" />
+
+
+                <!-- CONFIRM PASSWORD INPUT -->
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="19dp"
+                    app:boxBackgroundMode="none"
+                    app:endIconMode="password_toggle"
+                    app:endIconTint="#3298E8">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etConfirmPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:background="@drawable/bg_oval_input"
+                        android:drawableStart="@drawable/ic_lock"
+                        android:drawablePadding="12dp"
+                        android:drawableTint="#3298E8"
+                        android:hint="Enter your password again"
+                        android:textColor="#173F65"
+                        android:textColorHint="#7A9AB5"
+                        android:textSize="15sp"
+                        android:inputType="textPassword"
+                        android:singleLine="true"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingTop="12dp"
+                        android:paddingBottom="12dp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- CREATE ACCOUNT BUTTON -->
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnRegister"
+                    android:layout_width="280dp"
+                    android:layout_height="58dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="28dp"
+                    android:gravity="center"
+                    android:text="Create My Account  →"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/register_button_background"
+                    android:insetLeft="0dp"
+                    android:insetRight="0dp"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    app:backgroundTint="#90CAF9"
+                    app:cornerRadius="32dp"
+                    app:elevation="5dp"
+                    app:rippleColor="#BBDEFB"
+                    app:strokeWidth="0dp" />
+
+                <!-- SIGN IN LINK -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="23dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Already have an account? "
+                        android:textColor="#7892A9"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvLogin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="Sign in"
+                        android:textColor="#258FE0"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="?attr/selectableItemBackground" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- FOOTER -->
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="7dp"
-            android:gravity="center"
-            android:text="Create your CampusPulse student account"
-            android:textColor="#607D8B"
-            android:textSize="16sp" />
-
-        <!-- FULL NAME -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            app:boxBackgroundMode="outline"
-            app:boxBackgroundColor="#E3F2FD"
-            app:boxStrokeColor="#90CAF9"
-            app:boxStrokeWidth="1dp"
-            app:boxStrokeWidthFocused="2dp"
-            app:boxCornerRadiusTopStart="30dp"
-            app:boxCornerRadiusTopEnd="30dp"
-            app:boxCornerRadiusBottomStart="30dp"
-            app:boxCornerRadiusBottomEnd="30dp"
-            app:startIconDrawable="@drawable/ic_person"
-            app:startIconTint="#1976D2">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etFullName"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:background="@drawable/edittext_background"
-                android:hint="Enter your full name"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:inputType="textPersonName"
-                android:singleLine="true"
-                android:textColor="#263238"
-                android:textColorHint="#90A4AE"
-                android:textSize="16sp" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- EMAIL -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
-            app:boxBackgroundMode="outline"
-            app:boxBackgroundColor="#E3F2FD"
-            app:boxStrokeColor="#90CAF9"
-            app:boxStrokeWidth="1dp"
-            app:boxStrokeWidthFocused="2dp"
-            app:boxCornerRadiusTopStart="30dp"
-            app:boxCornerRadiusTopEnd="30dp"
-            app:boxCornerRadiusBottomStart="30dp"
-            app:boxCornerRadiusBottomEnd="30dp"
-            app:startIconDrawable="@drawable/ic_email"
-            app:startIconTint="#1976D2">
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
-                app:boxBackgroundMode="none"
-                app:startIconDrawable="@drawable/ic_email"
-                app:startIconTint="#1976D2">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:background="@drawable/edittext_background"
-                    android:hint="Enter your email"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
-                    android:inputType="textEmailAddress"
-                    android:singleLine="true"
-                    android:textColor="#263238"
-                    android:textColorHint="#90A4AE"
-                    android:textSize="16sp" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- PASSWORD -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
-            app:boxBackgroundMode="outline"
-            app:boxBackgroundColor="#E3F2FD"
-            app:boxStrokeColor="#90CAF9"
-            app:boxStrokeWidth="1dp"
-            app:boxStrokeWidthFocused="2dp"
-            app:boxCornerRadiusTopStart="30dp"
-            app:boxCornerRadiusTopEnd="30dp"
-            app:boxCornerRadiusBottomStart="30dp"
-            app:boxCornerRadiusBottomEnd="30dp"
-            app:startIconDrawable="@drawable/ic_lock"
-            app:startIconTint="#1976D2"
-            app:endIconMode="password_toggle">
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
-                app:boxBackgroundMode="none"
-                app:startIconDrawable="@drawable/ic_lock"
-                app:startIconTint="#1976D2"
-                app:endIconMode="password_toggle">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etPassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:background="@drawable/edittext_background"
-                    android:hint="Create a password"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
-                    android:inputType="textPassword"
-                    android:singleLine="true"
-                    android:textColor="#263238"
-                    android:textColorHint="#90A4AE"
-                    android:textSize="16sp" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- CONFIRM PASSWORD -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
-            app:boxBackgroundMode="outline"
-            app:boxBackgroundColor="#E3F2FD"
-            app:boxStrokeColor="#90CAF9"
-            app:boxStrokeWidth="1dp"
-            app:boxStrokeWidthFocused="2dp"
-            app:boxCornerRadiusTopStart="30dp"
-            app:boxCornerRadiusTopEnd="30dp"
-            app:boxCornerRadiusBottomStart="30dp"
-            app:boxCornerRadiusBottomEnd="30dp"
-            app:startIconDrawable="@drawable/ic_lock"
-            app:startIconTint="#1976D2"
-            app:endIconMode="password_toggle">
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
-                app:boxBackgroundMode="none"
-                app:startIconDrawable="@drawable/ic_lock"
-                app:startIconTint="#1976D2"
-                app:endIconMode="password_toggle">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etConfirmPassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:background="@drawable/edittext_background"
-                    android:hint="Re-enter your password"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
-                    android:inputType="textPassword"
-                    android:singleLine="true"
-                    android:textColor="#263238"
-                    android:textColorHint="#90A4AE"
-                    android:textSize="16sp" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnRegister"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/register_button_background"
-            android:gravity="center"
-            android:text="Create Account"
-            android:textColor="#0D47A1"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            app:backgroundTint="@null"
-            app:cornerRadius="50dp"
-            app:strokeWidth="0dp" />
-        <!-- LOGIN LINK -->
-        <TextView
-            android:id="@+id/tvLogin"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="22dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:text="Already have an account? Login"
-            android:textColor="#1976D2"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:gravity="center"
+            android:text="CAMPUSPULSE  •  YOUR CAMPUS, CONNECTED"
+            android:textColor="#8AA4BA"
+            android:textSize="11sp"
+            android:letterSpacing="0.06" />
 
     </LinearLayout>
 

@@ -480,6 +480,8 @@
 
         </LinearLayout>
 
+
+
         <!-- REGISTER BUTTON -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnRegisterEvent"
@@ -498,6 +500,46 @@
             app:cornerRadius="18dp"
             app:elevation="2dp" />
 
+
+
+
+        <!-- EDIT EVENT BUTTON -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEditEvent"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_marginTop="12dp"
+            android:text="Edit Event"
+            android:gravity="center"
+            android:background="@drawable/register_button_background"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-medium"
+            app:backgroundTint="#345D83"
+            app:cornerRadius="18dp"
+            app:elevation="2dp" />
+
+        <!-- DELETE EVENT BUTTON -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDeleteEvent"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_marginTop="12dp"
+            android:text="Delete Event"
+            android:gravity="center"
+            android:background="@drawable/register_button_background"
+            android:textAllCaps="false"
+            android:textColor="#B42318"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-medium"
+            app:backgroundTint="#FCE8E6"
+            app:cornerRadius="18dp"
+            app:elevation="0dp" />
+
+
         <!-- BACK BUTTON -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnBackEventsBottom"
@@ -507,7 +549,9 @@
             android:layout_marginBottom="20dp"
             android:text="Back to Events"
             android:textAllCaps="false"
+            android:gravity="center"
             android:textColor="#244F7A"
+            android:background="@drawable/register_button_background"
             android:textSize="16sp"
             android:textStyle="bold"
             android:fontFamily="sans-serif-medium"
@@ -524,6 +568,7 @@
             android:text="CAMPUSPULSE  •  CONNECT. DISCOVER. PARTICIPATE."
             android:textColor="#465563"
             android:textSize="11sp"
+
             android:fontFamily="sans-serif-medium"
             android:letterSpacing="0.01" />
 

@@ -6,6 +6,8 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.example.sod401_team_project.ui.theme.HomeFragment;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override

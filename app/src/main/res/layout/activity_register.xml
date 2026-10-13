@@ -121,14 +121,7 @@
                 <!-- FULL NAME OVAL FIELD -->
 
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Enter your full name"
-                    app:boxBackgroundMode="none"
-                    app:startIconDrawable="@drawable/ic_person"
-                    app:startIconTint="#3298E8"
-                    app:hintTextColor="#7A9AB5"/>
+
 
 
                 <!-- FULL NAME INPUT -->

@@ -1,3 +1,4 @@
+
 package com.example.sod401_team_project;
 
 import android.content.Intent;
@@ -9,14 +10,30 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.sod401_team_project.data.Event;
+import com.google.android.material.button.MaterialButton;
+
+import java.util.ArrayList;
 import java.util.List;
 
-public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHolder> {
+public class EventAdapter
+        extends RecyclerView.Adapter<EventAdapter.EventViewHolder> {
 
-    private final List<String> eventTitles;
+    private final List<Event> events = new ArrayList<>();
 
-    public EventAdapter(List<String> eventTitles) {
-        this.eventTitles = eventTitles;
+    public EventAdapter() {
+        // The list starts empty.
+    }
+
+    // Update the list with events loaded from the database.
+    public void updateEvents(List<Event> newEvents) {
+        events.clear();
+
+        if (newEvents != null) {
+            events.addAll(newEvents);
+        }
+
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -36,43 +53,58 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
             @NonNull EventViewHolder holder,
             int position) {
 
-        String title = eventTitles.get(position);
+        Event event = events.get(position);
 
-        holder.tvEventTitle.setText(title);
+        // Display event information using the getters in Event.java.
+        holder.tvEventTitle.setText(event.getTitle());
+        holder.tvEventDescription.setText(event.getDescription());
+        holder.tvEventDate.setText(event.getDate());
+        holder.tvEventTime.setText(event.getTime());
+        holder.tvEventDetails.setText(event.getLocation());
 
-        holder.tvEventDescription.setText(
-                "Campus event for students and the university community."
+        // Open the event details when the button is clicked.
+        holder.btnViewEvent.setOnClickListener(v ->
+                openEventDetails(v, event)
         );
 
-        holder.tvEventDetails.setText(
-                "Main Campus • 10:00 AM"
+        // Also allow the card itself to open the details.
+        holder.itemView.setOnClickListener(v ->
+                openEventDetails(v, event)
+        );
+    }
+
+    private void openEventDetails(View view, Event event) {
+
+        Intent intent = new Intent(
+                view.getContext(),
+                EventDetailsActivity.class
         );
 
-        holder.itemView.setOnClickListener(v -> {
+        intent.putExtra("event_id", event.getId());
+        intent.putExtra("event_title", event.getTitle());
+        intent.putExtra("event_description", event.getDescription());
+        intent.putExtra("event_date", event.getDate());
+        intent.putExtra("event_time", event.getTime());
+        intent.putExtra("event_location", event.getLocation());
 
-            Intent intent = new Intent(
-                    v.getContext(),
-                    EventDetailsActivity.class
-            );
-
-            intent.putExtra("event_title", title);
-
-            v.getContext().startActivity(intent);
-        });
+        view.getContext().startActivity(intent);
     }
 
     @Override
     public int getItemCount() {
-        return eventTitles.size();
+        return events.size();
     }
 
-    public static class EventViewHolder extends RecyclerView.ViewHolder {
+    static class EventViewHolder extends RecyclerView.ViewHolder {
 
         TextView tvEventTitle;
         TextView tvEventDescription;
+        TextView tvEventDate;
+        TextView tvEventTime;
         TextView tvEventDetails;
+        MaterialButton btnViewEvent;
 
-        public EventViewHolder(@NonNull View itemView) {
+        EventViewHolder(@NonNull View itemView) {
             super(itemView);
 
             tvEventTitle =
@@ -81,8 +113,17 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
             tvEventDescription =
                     itemView.findViewById(R.id.tvEventDescription);
 
+            tvEventDate =
+                    itemView.findViewById(R.id.tvEventDate);
+
+            tvEventTime =
+                    itemView.findViewById(R.id.tvEventTime);
+
             tvEventDetails =
                     itemView.findViewById(R.id.tvEventDetails);
+
+            btnViewEvent =
+                    itemView.findViewById(R.id.btnViewEvent);
         }
     }
 }

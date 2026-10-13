@@ -5,303 +5,648 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F7FA"
-    android:fillViewport="true">
+    android:background="#F3F6FC"
+    android:fillViewport="true"
+    android:clipToPadding="false"
+    android:scrollbars="none">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingBottom="28dp">
+        android:paddingBottom="32dp">
 
-        <!-- TOP BAR -->
+        <!-- TOP APP BAR -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="58dp"
+            android:layout_height="64dp"
             android:orientation="horizontal"
             android:gravity="center_vertical"
             android:background="#FFFFFF"
             android:paddingStart="16dp"
-            android:paddingEnd="16dp">
+            android:paddingEnd="16dp"
+            android:elevation="3dp">
 
             <TextView
                 android:id="@+id/btnHome"
                 android:layout_width="44dp"
-                android:layout_height="match_parent"
+                android:layout_height="44dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
                 android:gravity="center"
                 android:text="‹"
-                android:textColor="#263238"
-                android:textSize="36sp" />
+                android:textColor="#17365D"
+                android:textSize="36sp"
+                android:contentDescription="Go back"
+                android:clickable="true"
+                android:focusable="true" />
 
-            <TextView
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center"
-                android:text="User Profile"
-                android:textColor="#263238"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="My Profile"
+                    android:textColor="#17365D"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Manage your account"
+                    android:textColor="#8291A8"
+                    android:textSize="11sp" />
+
+            </LinearLayout>
 
             <TextView
                 android:layout_width="44dp"
-                android:layout_height="match_parent"
+                android:layout_height="44dp"
                 android:gravity="center"
-                android:text=" "
-                android:textSize="18sp" />
+                android:text="●"
+                android:textColor="#20B982"
+                android:textSize="12sp"
+                android:contentDescription="Profile status" />
 
         </LinearLayout>
 
-        <!-- BLUE PROFILE HEADER -->
+        <!-- PREMIUM PROFILE HEADER -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
+                android:paddingBottom="22dp"
+                android:background="@drawable/profile_header_gradient">
+
+                <!-- AVATAR -->
+                <FrameLayout
+                    android:layout_width="88dp"
+                    android:layout_height="88dp"
+                    android:background="@drawable/profile_icon_background"
+                    android:elevation="5dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="17dp"
+                        android:src="@drawable/profile_user_icon"
+                        android:scaleType="fitCenter"
+                        android:contentDescription="Student profile picture" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="CAMPUSPULSE"
+                    android:textColor="#FFFFFF"
+                    android:textSize="23sp"
+                    android:letterSpacing="0.08"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Your campus. Your community."
+                    android:textColor="#E5EEFF"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <!-- STUDENT IDENTITY PANEL -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="92dp"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="22dp"
+                android:layout_marginEnd="22dp"
+                android:layout_marginBottom="0dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="7dp"
+                app:strokeColor="#E8EDF6"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="18dp"
+                    android:paddingEnd="18dp">
+
+                    <LinearLayout
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="#EAF1FF"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="♙"
+                            android:textColor="#2463D4"
+                            android:textSize="29sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="YOUR ACCOUNT"
+                            android:textColor="#8391A7"
+                            android:textSize="10sp"
+                            android:letterSpacing="0.09"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="Student Profile"
+                            android:textColor="#17365D"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#E3F8EE"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:paddingTop="7dp"
+                        android:paddingBottom="7dp"
+                        android:text="ACTIVE"
+                        android:textColor="#16865B"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </FrameLayout>
+
+        <!-- STUDENT INFORMATION SECTION -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="170dp"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="center"
-            android:background="@drawable/profile_header_gradient">
-
-            <ImageView
-                android:layout_width="76dp"
-                android:layout_height="76dp"
-                android:padding="14dp"
-                android:src="@drawable/profile_user_icon"
-                android:background="@drawable/profile_icon_background"
-                android:scaleType="fitCenter"
-                android:contentDescription="User profile icon" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="CAMPUSPULSE"
-                android:textColor="#0D47A1"
-                android:textSize="22sp"
-                android:textStyle="bold"
-                android:letterSpacing="0.05" />
+            android:layout_marginStart="22dp"
+            android:layout_marginEnd="22dp"
+            android:layout_marginTop="26dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
-                android:text="Your Campus. Your Community."
-                android:textColor="#1565C0"
-                android:textSize="13sp" />
+                android:text="STUDENT INFORMATION"
+                android:textColor="#72829A"
+                android:textSize="11sp"
+                android:letterSpacing="0.12"
+                android:textStyle="bold" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:strokeColor="#E7EDF6"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- ROLE -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="68dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:background="#EAF1FF"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="♙"
+                                android:textColor="#2463D4"
+                                android:textSize="24sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="13dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Account role"
+                                android:textColor="#8391A7"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:text="Student"
+                                android:textColor="#17365D"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="#E3F8EE"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:paddingTop="6dp"
+                            android:paddingBottom="6dp"
+                            android:text="MEMBER"
+                            android:textColor="#16865B"
+                            android:textSize="9sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="57dp"
+                        android:background="#EDF1F7" />
+
+                    <!-- EDUCATION -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="68dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:background="#F1EBFF"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="▤"
+                                android:textColor="#7650C8"
+                                android:textSize="23sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="13dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Institution"
+                                android:textColor="#8391A7"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:text="Northrise University "
+                                android:textColor="#17365D"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>
 
-        <!-- STUDENT INFORMATION CARD -->
-        <com.google.android.material.card.MaterialCardView
+        <!-- ACCOUNT DETAILS SECTION -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:layout_marginEnd="18dp"
-            android:layout_marginTop="22dp"
-            app:cardBackgroundColor="#FFFFFF"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="3dp"
-            app:strokeColor="#E1EAF2"
-            app:strokeWidth="1dp">
+            android:orientation="vertical"
+            android:layout_marginStart="22dp"
+            android:layout_marginEnd="22dp"
+            android:layout_marginTop="24dp">
 
-            <LinearLayout
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ACCOUNT DETAILS"
+                android:textColor="#72829A"
+                android:textSize="11sp"
+                android:letterSpacing="0.12"
+                android:textStyle="bold" />
+
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="20dp">
+                android:layout_marginTop="12dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:strokeColor="#E7EDF6"
+                app:strokeWidth="1dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="STUDENT INFORMATION"
-                    android:textColor="#1565C0"
-                    android:textSize="13sp"
-                    android:textStyle="bold"
-                    android:letterSpacing="0.06" />
-
-                <!-- IDENTITY -->
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="58dp"
-                    android:layout_marginTop="14dp"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp">
 
-                    <TextView
-                        android:layout_width="0dp"
+                    <!-- USERNAME -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Identity"
-                        android:textColor="#263238"
-                        android:textSize="15sp" />
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="15dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:background="#EAF1FF"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="♙"
+                                android:textColor="#2463D4"
+                                android:textSize="23sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="13dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Username"
+                                android:textColor="#8391A7"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/txtUsername"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:text="student"
+                                android:textColor="#17365D"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#EDF1F7" />
+
+                    <!-- EMAIL -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Student"
-                        android:textColor="#757575"
-                        android:textSize="14sp" />
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp">
+
+                        <LinearLayout
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:background="#E4F8F0"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="✉"
+                                android:textColor="#13845C"
+                                android:textSize="21sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="13dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Email address"
+                                android:textColor="#8391A7"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/txtEmail"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:text="2407811@northrise.net"
+                                android:textColor="#17365D"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:breakStrategy="simple" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#EDF1F7" />
+
+                    <!-- USER ID -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="5dp">
+
+                        <LinearLayout
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:background="#FFF2E5"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="▣"
+                                android:textColor="#D17A21"
+                                android:textSize="22sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="13dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Student ID"
+                                android:textColor="#8391A7"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/txtUserId"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:text="2407811"
+                                android:textColor="#17365D"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#E8EEF4" />
+            </com.google.android.material.card.MaterialCardView>
 
-                <!-- EDUCATION -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="58dp"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
+        </LinearLayout>
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Education"
-                        android:textColor="#263238"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="University"
-                        android:textColor="#757575"
-                        android:textSize="14sp" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- ACCOUNT CARD -->
-        <com.google.android.material.card.MaterialCardView
+        <!-- MY REGISTRATIONS BUTTON -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnMyRegistrations"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:layout_marginEnd="18dp"
-            android:layout_marginTop="18dp"
-            app:cardBackgroundColor="#FFFFFF"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="3dp"
-            app:strokeColor="#E1EAF2"
-            app:strokeWidth="1dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="20dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="ACCOUNT DETAILS"
-                    android:textColor="#1565C0"
-                    android:textSize="13sp"
-                    android:textStyle="bold"
-                    android:letterSpacing="0.06" />
-
-                <!-- USERNAME -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:text="Username"
-                    android:textColor="#424242"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/txtUsername"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="student"
-                    android:textColor="#757575"
-                    android:textSize="15sp" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="16dp"
-                    android:background="#E8EEF4" />
-
-                <!-- EMAIL -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="Email address"
-                    android:textColor="#424242"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/txtEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="student@example.com"
-                    android:textColor="#757575"
-                    android:textSize="15sp" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="16dp"
-                    android:background="#E8EEF4" />
-
-                <!-- USER ID -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="User ID"
-                    android:textColor="#424242"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/txtUserId"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="2400001"
-                    android:textColor="#757575"
-                    android:textSize="15sp" />
-
-            </LinearLayout>
-
-        </com.google.android.material.card.MaterialCardView>
+            android:layout_height="56dp"
+            android:layout_marginStart="22dp"
+            android:layout_marginEnd="22dp"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="My Event Registrations   →"
+            android:textAllCaps="false"
+            android:textColor="#215FC4"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:backgroundTint="#EAF1FF"
+            app:cornerRadius="16dp"
+            app:elevation="0dp"
+            app:strokeColor="#D6E4FF"
+            app:strokeWidth="1dp" />
 
         <!-- LOGOUT BUTTON -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnLogout"
             android:layout_width="match_parent"
-            android:layout_height="58dp"
-            android:layout_marginStart="18dp"
-            android:layout_marginEnd="18dp"
-            android:layout_marginTop="24dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="22dp"
+            android:layout_marginEnd="22dp"
+            android:layout_marginTop="12dp"
             android:gravity="center"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="LOGOUT"
-            android:textColor="#000000"
-            android:textSize="16sp"
+            android:text="⇥   Log Out"
+            android:textAllCaps="false"
+            android:textColor="#D94343"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:backgroundTint="#FFFFFF"
-            app:cornerRadius="50dp"
-            app:strokeColor="#2196F3"
-            app:strokeWidth="1dp" />
+            app:cornerRadius="16dp"
+            app:elevation="0dp"
+            app:strokeColor="#F2D6D6"
+            app:strokeWidth="1dp"
+            app:rippleColor="#20D94343" />
 
-        <!-- HIDDEN REGISTRATIONS BUTTON FOR JAVA COMPATIBILITY -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnMyRegistrations"
-            android:layout_width="wrap_content"
+        <!-- FOOTER -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:text="MY EVENT REGISTRATIONS" />
+            android:layout_marginTop="25dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CAMPUSPULSE"
+                android:textColor="#8A9AB0"
+                android:textSize="10sp"
+                android:letterSpacing="0.16"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Your campus. Your community. Your moment."
+                android:textColor="#A1ADBD"
+                android:textSize="11sp" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

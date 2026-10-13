@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F4F8FC"
+    android:background="#F7F8FA"
     android:fillViewport="true"
     android:clipToPadding="false">
 
@@ -32,7 +32,7 @@
                 android:contentDescription="Back to events"
                 android:padding="10dp"
                 android:src="@drawable/ic_arrow_back"
-                app:tint="#12355B" />
+                app:tint="#243746" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -45,19 +45,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="CAMPUSPULSE"
-                    android:textColor="#1565C0"
-                    android:textSize="11sp"
+                    android:textColor="#345D83"
+                    android:textSize="13sp"
                     android:textStyle="bold"
-                    android:letterSpacing="0.15" />
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.05" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"
                     android:text="Event details"
-                    android:textColor="#12355B"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textColor="#172B3A"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-medium" />
 
             </LinearLayout>
 
@@ -70,13 +72,14 @@
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
                 android:text="EVENT"
-                android:textColor="#1565C0"
-                android:textSize="10sp"
-                android:textStyle="bold" />
+                android:textColor="#244F7A"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-medium" />
 
         </LinearLayout>
 
-        <!-- FEATURED EVENT HERO BANNER -->
+        <!-- FEATURED EVENT BANNER -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -95,9 +98,10 @@
                 android:paddingBottom="7dp"
                 android:text="✦  FEATURED CAMPUS EVENT"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 android:textStyle="bold"
-                android:letterSpacing="0.06" />
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.02" />
 
             <!-- DECORATIVE EVENT ICON -->
             <TextView
@@ -118,9 +122,9 @@
                 android:layout_marginTop="20dp"
                 android:text="Campus Innovation Day"
                 android:textColor="#FFFFFF"
-                android:textSize="27sp"
+                android:textSize="29sp"
                 android:textStyle="bold"
-                android:fontFamily="sans-serif"
+                android:fontFamily="sans-serif-medium"
                 android:lineSpacingExtra="3dp" />
 
             <!-- ACCENT LINE -->
@@ -128,7 +132,7 @@
                 android:layout_width="52dp"
                 android:layout_height="4dp"
                 android:layout_marginTop="14dp"
-                android:background="#90CAF9" />
+                android:background="#B9D8F2" />
 
             <!-- EVENT DESCRIPTION -->
             <TextView
@@ -137,8 +141,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
                 android:text="Discover ideas, connect with fellow students, and explore exciting opportunities across campus."
-                android:textColor="#EAF4FF"
-                android:textSize="14sp"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif"
                 android:lineSpacingExtra="5dp" />
 
         </LinearLayout>
@@ -165,17 +170,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="OCT"
-                    android:textColor="#1565C0"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
+                    android:textColor="#244F7A"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-medium" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="15"
-                    android:textColor="#12355B"
+                    android:textColor="#172B3A"
                     android:textSize="29sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-medium" />
 
             </LinearLayout>
 
@@ -191,27 +198,30 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="SAVE THE DATE"
-                    android:textColor="#1565C0"
-                    android:textSize="10sp"
+                    android:textColor="#244F7A"
+                    android:textSize="12sp"
                     android:textStyle="bold"
-                    android:letterSpacing="0.1" />
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.03" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
                     android:text="Thursday, 15 October 2026"
-                    android:textColor="#12355B"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
+                    android:textColor="#172B3A"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-medium" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:text="Starts at 10:00 AM"
-                    android:textColor="#56738F"
-                    android:textSize="13sp" />
+                    android:textColor="#405261"
+                    android:textSize="15sp"
+                    android:fontFamily="sans-serif" />
 
             </LinearLayout>
 
@@ -223,17 +233,19 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
             android:text="Event information"
-            android:textColor="#12355B"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textColor="#172B3A"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-medium" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="Everything you need to know before attending."
-            android:textColor="#78909C"
-            android:textSize="13sp" />
+            android:textColor="#465563"
+            android:textSize="15sp"
+            android:fontFamily="sans-serif" />
 
         <!-- EVENT INFORMATION CARD -->
         <LinearLayout
@@ -257,9 +269,10 @@
                     android:background="@drawable/bg_event_info_icon"
                     android:gravity="center"
                     android:text="D"
-                    android:textColor="#1565C0"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textColor="#244F7A"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-medium" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -272,10 +285,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="DATE"
-                        android:textColor="#78909C"
-                        android:textSize="10sp"
+                        android:textColor="#465563"
+                        android:textSize="12sp"
                         android:textStyle="bold"
-                        android:letterSpacing="0.1" />
+                        android:fontFamily="sans-serif-medium"
+                        android:letterSpacing="0.03" />
 
                     <TextView
                         android:id="@+id/tvEventDate"
@@ -283,9 +297,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="Thursday, 15 October 2026"
-                        android:textColor="#12355B"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:textColor="#172B3A"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-medium" />
 
                 </LinearLayout>
 
@@ -296,7 +311,7 @@
                 android:layout_height="1dp"
                 android:layout_marginTop="17dp"
                 android:layout_marginBottom="17dp"
-                android:background="#EAF0F6" />
+                android:background="#DCE3E9" />
 
             <!-- TIME ROW -->
             <LinearLayout
@@ -311,9 +326,10 @@
                     android:background="@drawable/bg_event_info_icon"
                     android:gravity="center"
                     android:text="T"
-                    android:textColor="#1565C0"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textColor="#244F7A"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-medium" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -326,10 +342,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="TIME"
-                        android:textColor="#78909C"
-                        android:textSize="10sp"
+                        android:textColor="#465563"
+                        android:textSize="12sp"
                         android:textStyle="bold"
-                        android:letterSpacing="0.1" />
+                        android:fontFamily="sans-serif-medium"
+                        android:letterSpacing="0.03" />
 
                     <TextView
                         android:id="@+id/tvEventTime"
@@ -337,9 +354,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="10:00 AM"
-                        android:textColor="#12355B"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:textColor="#172B3A"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-medium" />
 
                 </LinearLayout>
 
@@ -350,7 +368,7 @@
                 android:layout_height="1dp"
                 android:layout_marginTop="17dp"
                 android:layout_marginBottom="17dp"
-                android:background="#EAF0F6" />
+                android:background="#DCE3E9" />
 
             <!-- LOCATION ROW -->
             <LinearLayout
@@ -365,9 +383,10 @@
                     android:background="@drawable/bg_event_info_icon"
                     android:gravity="center"
                     android:text="L"
-                    android:textColor="#1565C0"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textColor="#244F7A"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-medium" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -380,10 +399,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="LOCATION"
-                        android:textColor="#78909C"
-                        android:textSize="10sp"
+                        android:textColor="#465563"
+                        android:textSize="12sp"
                         android:textStyle="bold"
-                        android:letterSpacing="0.1" />
+                        android:fontFamily="sans-serif-medium"
+                        android:letterSpacing="0.03" />
 
                     <TextView
                         android:id="@+id/tvEventLocation"
@@ -391,9 +411,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="Main Campus Auditorium"
-                        android:textColor="#12355B"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:textColor="#172B3A"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-medium" />
 
                 </LinearLayout>
 
@@ -419,16 +440,17 @@
                 <View
                     android:layout_width="5dp"
                     android:layout_height="25dp"
-                    android:background="#1565C0" />
+                    android:background="#345D83" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:text="About this event"
-                    android:textColor="#12355B"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textColor="#172B3A"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-medium" />
 
             </LinearLayout>
 
@@ -438,8 +460,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
                 android:text="Join other students for a campus experience filled with learning, collaboration, and new opportunities. Meet people, share ideas, and take part in activities designed to bring the campus community together."
-                android:textColor="#56738F"
-                android:textSize="14sp"
+                android:textColor="#354B5C"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif"
                 android:lineSpacingExtra="6dp" />
 
             <!-- ATTENDANCE NOTE -->
@@ -447,44 +470,48 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
-                android:background="#EAF4FF"
+                android:background="#EAF0F6"
+                android:lineSpacingExtra="3dp"
                 android:padding="14dp"
                 android:text="✦  Register below to show your interest in attending."
-                android:textColor="#1565C0"
-                android:textSize="12sp"
-                android:lineSpacingExtra="3dp" />
+                android:textColor="#244F7A"
+                android:textSize="15sp"
+                android:fontFamily="sans-serif-medium" />
 
         </LinearLayout>
 
         <!-- REGISTER BUTTON -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnRegisterEvent"
-            android:layout_width="150dp"
-            android:layout_height="55dp"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
             android:layout_marginTop="26dp"
             android:text="Register for Event"
             android:background="@drawable/register_button_background"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
-            android:textSize="16sp"
+            android:textSize="17sp"
+            android:fontFamily="sans-serif-medium"
             android:gravity="center"
             android:textStyle="bold"
-            app:backgroundTint="#1565C0"
+            app:backgroundTint="#345D83"
             app:cornerRadius="18dp"
-            app:elevation="4dp"/>
+            app:elevation="2dp" />
 
         <!-- BACK BUTTON -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnBackEventsBottom"
             android:layout_width="match_parent"
-            android:layout_height="54dp"
+            android:layout_height="56dp"
             android:layout_marginTop="12dp"
             android:layout_marginBottom="20dp"
             android:text="Back to Events"
             android:textAllCaps="false"
-            android:textColor="#1565C0"
-            android:textSize="15sp"
-            app:backgroundTint="#E3F2FD"
+            android:textColor="#244F7A"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-medium"
+            app:backgroundTint="#E5ECF2"
             app:cornerRadius="18dp"
             app:elevation="0dp" />
 
@@ -495,9 +522,10 @@
             android:gravity="center"
             android:layout_marginBottom="12dp"
             android:text="CAMPUSPULSE  •  CONNECT. DISCOVER. PARTICIPATE."
-            android:textColor="#90A4AE"
-            android:textSize="9sp"
-            android:letterSpacing="0.05" />
+            android:textColor="#465563"
+            android:textSize="11sp"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.01" />
 
     </LinearLayout>
 

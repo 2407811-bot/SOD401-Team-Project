@@ -18,7 +18,7 @@ import com.google.android.material.card.MaterialCardView;
 public class HomeFragment extends Fragment {
 
     public HomeFragment() {
-        // Required empty constructor
+        // Required empty constructor.
     }
 
     @Nullable
@@ -42,78 +42,86 @@ public class HomeFragment extends Fragment {
 
         super.onViewCreated(view, savedInstanceState);
 
-        // 1. OPEN CAMPUS EVENTS
+        // EVENTS CARD
         MaterialCardView btnEvents =
                 view.findViewById(R.id.btnEvents);
 
-        btnEvents.setOnClickListener(v ->
-                openScreen(new EventsFragment())
-        );
+        if (btnEvents != null) {
+            btnEvents.setOnClickListener(v ->
+                    openScreen(new EventsFragment()));
+        }
 
-        // 2. OPEN ANNOUNCEMENTS
+        // ANNOUNCEMENTS CARD
         MaterialCardView btnAnnouncements =
                 view.findViewById(R.id.btnAnnouncements);
 
-        btnAnnouncements.setOnClickListener(v ->
-                openScreen(new AnnouncementsFragment())
-        );
+        if (btnAnnouncements != null) {
+            btnAnnouncements.setOnClickListener(v ->
+                    openScreen(new AnnouncementsFragment()));
+        }
 
-        // 3. OPEN MY PROFILE
+        // PROFILE CARD
         MaterialCardView btnProfile =
                 view.findViewById(R.id.btnProfile);
 
-        btnProfile.setOnClickListener(v ->
-                openScreen(new ProfileFragment())
-        );
+        if (btnProfile != null) {
+            btnProfile.setOnClickListener(v ->
+                    openScreen(new ProfileFragment()));
+        }
 
-        // 4. EXPLORE CAMPUS
+        // EXPLORE CAMPUS CARD
         MaterialCardView btnExploreCampus =
                 view.findViewById(R.id.btnExploreCampus);
 
-        btnExploreCampus.setOnClickListener(v ->
-                Toast.makeText(
-                        requireContext(),
-                        "Explore Campus is coming soon!",
-                        Toast.LENGTH_SHORT
-                ).show()
-        );
+        if (btnExploreCampus != null) {
+            btnExploreCampus.setOnClickListener(v ->
+                    Toast.makeText(
+                            requireContext(),
+                            "Explore Campus is coming soon!",
+                            Toast.LENGTH_SHORT
+                    ).show());
+        }
 
-        // 5. LOGOUT BUTTON
+        // LOGOUT BUTTON
         ImageButton btnLogout =
                 view.findViewById(R.id.btnHomeLogout);
 
-        btnLogout.setOnClickListener(v ->
-                Toast.makeText(
-                        requireContext(),
-                        "Logout will be implemented next.",
-                        Toast.LENGTH_SHORT
-                ).show()
-        );
+        if (btnLogout != null) {
+            btnLogout.setOnClickListener(v ->
+                    Toast.makeText(
+                            requireContext(),
+                            "Logout will be implemented next.",
+                            Toast.LENGTH_SHORT
+                    ).show());
+        }
 
-        // 6. SEARCH BAR
+        // SEARCH FIELD
         EditText etSearch =
                 view.findViewById(R.id.etSearch);
 
-        etSearch.setOnEditorActionListener(
-                (textView, actionId, event) -> {
+        if (etSearch != null) {
+            etSearch.setOnEditorActionListener(
+                    (textView, actionId, event) -> {
 
-                    String keyword =
-                            etSearch.getText().toString().trim();
+                        String keyword =
+                                etSearch.getText()
+                                        .toString()
+                                        .trim();
 
-                    if (!keyword.isEmpty()) {
-                        Toast.makeText(
-                                requireContext(),
-                                "Search will be connected to events next.",
-                                Toast.LENGTH_SHORT
-                        ).show();
-                    }
+                        if (!keyword.isEmpty()) {
+                            Toast.makeText(
+                                    requireContext(),
+                                    "Search will be connected to events next.",
+                                    Toast.LENGTH_SHORT
+                            ).show();
+                        }
 
-                    return false;
-                }
-        );
+                        return false;
+                    });
+        }
     }
 
-    // NAVIGATION METHOD
+    // OPENS ANOTHER SCREEN INSIDE MAIN ACTIVITY
     private void openScreen(Fragment fragment) {
 
         if (getActivity() instanceof MainActivity) {

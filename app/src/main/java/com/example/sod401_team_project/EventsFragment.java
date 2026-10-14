@@ -1,6 +1,7 @@
 
 package com.example.sod401_team_project;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -70,7 +71,6 @@ public class EventsFragment extends Fragment {
 
         super.onViewCreated(view, savedInstanceState);
 
-        // Connect the XML views.
         RecyclerView recyclerViewEvents =
                 view.findViewById(R.id.recyclerViewEvents);
 
@@ -101,6 +101,9 @@ public class EventsFragment extends Fragment {
         MaterialButton btnHome =
                 view.findViewById(R.id.btnHome);
 
+        MaterialButton btnAddEvent =
+                view.findViewById(R.id.btnAddEvent);
+
         // Set up the RecyclerView.
         eventAdapter = new EventAdapter();
 
@@ -110,24 +113,38 @@ public class EventsFragment extends Fragment {
 
         recyclerViewEvents.setAdapter(eventAdapter);
 
-        // Connect to the existing Room repository.
-        eventRepository =
-                new EventRepository(requireContext().getApplicationContext());
+        // Connect to the existing Room database.
+        eventRepository = new EventRepository(
+                requireContext().getApplicationContext()
+        );
 
-        // Load saved events.
-        loadEvents();
+        // Open the Add Event screen.
+        btnAddEvent.setOnClickListener(v -> {
+            Intent intent = new Intent(
+                    requireContext(),
+                    AddEventActivity.class
+            );
+
+            startActivity(intent);
+        });
 
         // Search as the user types.
         etSearchEvents.addTextChangedListener(new TextWatcher() {
 
             @Override
             public void beforeTextChanged(
-                    CharSequence s, int start, int count, int after) {
+                    CharSequence s,
+                    int start,
+                    int count,
+                    int after) {
             }
 
             @Override
             public void onTextChanged(
-                    CharSequence s, int start, int before, int count) {
+                    CharSequence s,
+                    int start,
+                    int before,
+                    int count) {
 
                 displayFilteredEvents();
             }
@@ -137,31 +154,27 @@ public class EventsFragment extends Fragment {
             }
         });
 
-        // Category filters.
+        // Category filter buttons.
         btnCategoryAll.setOnClickListener(v ->
-                selectCategory("all")
-        );
+                selectCategory("all"));
 
         btnCategoryAcademic.setOnClickListener(v ->
-                selectCategory("academic")
-        );
+                selectCategory("academic"));
 
         btnCategorySocial.setOnClickListener(v ->
-                selectCategory("social")
-        );
+                selectCategory("social"));
 
         btnCategorySports.setOnClickListener(v ->
-                selectCategory("sports")
-        );
+                selectCategory("sports"));
 
         // Return to the Home screen.
         btnHome.setOnClickListener(v -> {
-
             if (getActivity() instanceof MainActivity) {
                 ((MainActivity) requireActivity())
                         .openFragment(new HomeFragment());
             } else {
-                requireActivity().getSupportFragmentManager()
+                requireActivity()
+                        .getSupportFragmentManager()
                         .popBackStack();
             }
         });
@@ -169,6 +182,17 @@ public class EventsFragment extends Fragment {
         updateCategoryButtons();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        // Reload events whenever this screen becomes active.
+        if (eventRepository != null) {
+            loadEvents();
+        }
+    }
+
+    // Load saved events from the Room database.
     private void loadEvents() {
 
         eventRepository.getAllEvents(
@@ -206,48 +230,66 @@ public class EventsFragment extends Fragment {
 
                         requireActivity().runOnUiThread(() -> {
 
-                            if (isAdded()) {
-                                Toast.makeText(
-                                        requireContext(),
-                                        "Could not load events: " + message,
-                                        Toast.LENGTH_LONG
-                                ).show();
+                            if (!isAdded()) {
+                                return;
                             }
+
+                            Toast.makeText(
+                                    requireContext(),
+                                    "Could not load events: " + message,
+                                    Toast.LENGTH_LONG
+                            ).show();
                         });
                     }
                 }
         );
     }
 
+    // Select a category and refresh the list.
     private void selectCategory(String category) {
+
         selectedCategory = category;
+
         updateCategoryButtons();
+
         displayFilteredEvents();
     }
 
+    // Highlight the currently selected category.
     private void updateCategoryButtons() {
 
-        setCategoryButtonStyle(btnCategoryAll,
-                selectedCategory.equals("all"));
+        setCategoryButtonStyle(
+                btnCategoryAll,
+                selectedCategory.equals("all")
+        );
 
-        setCategoryButtonStyle(btnCategoryAcademic,
-                selectedCategory.equals("academic"));
+        setCategoryButtonStyle(
+                btnCategoryAcademic,
+                selectedCategory.equals("academic")
+        );
 
-        setCategoryButtonStyle(btnCategorySocial,
-                selectedCategory.equals("social"));
+        setCategoryButtonStyle(
+                btnCategorySocial,
+                selectedCategory.equals("social")
+        );
 
-        setCategoryButtonStyle(btnCategorySports,
-                selectedCategory.equals("sports"));
+        setCategoryButtonStyle(
+                btnCategorySports,
+                selectedCategory.equals("sports")
+        );
     }
 
+    // Apply the selected style to each category button.
     private void setCategoryButtonStyle(
-            MaterialButton button, boolean selected) {
+            MaterialButton button,
+            boolean selected) {
 
         if (button == null) {
             return;
         }
 
         if (selected) {
+
             button.setBackgroundTintList(
                     android.content.res.ColorStateList.valueOf(
                             android.graphics.Color.parseColor("#4338CA")
@@ -257,7 +299,9 @@ public class EventsFragment extends Fragment {
             button.setTextColor(
                     android.graphics.Color.WHITE
             );
+
         } else {
+
             button.setBackgroundTintList(
                     android.content.res.ColorStateList.valueOf(
                             android.graphics.Color.WHITE
@@ -270,9 +314,10 @@ public class EventsFragment extends Fragment {
         }
     }
 
+    // Search and filter the events loaded from Room.
     private void displayFilteredEvents() {
 
-        if (eventAdapter == null) {
+        if (eventAdapter == null || etSearchEvents == null) {
             return;
         }
 
@@ -300,36 +345,52 @@ public class EventsFragment extends Fragment {
                             || description.contains(keyword)
                             || location.contains(keyword);
 
-            String searchableText =
-                    title + " " + description;
+            String searchableText = title + " " + description;
 
             boolean matchesCategory;
 
             switch (selectedCategory) {
+
                 case "academic":
                     matchesCategory = containsAny(
                             searchableText,
-                            "academic", "study", "lecture",
-                            "workshop", "seminar", "research",
-                            "education", "exam", "innovation"
+                            "academic",
+                            "study",
+                            "lecture",
+                            "workshop",
+                            "seminar",
+                            "research",
+                            "education",
+                            "exam",
+                            "innovation"
                     );
                     break;
 
                 case "social":
                     matchesCategory = containsAny(
                             searchableText,
-                            "social", "party", "music",
-                            "cultural", "festival", "welcome",
-                            "networking", "celebration"
+                            "social",
+                            "party",
+                            "music",
+                            "cultural",
+                            "festival",
+                            "welcome",
+                            "networking",
+                            "celebration"
                     );
                     break;
 
                 case "sports":
                     matchesCategory = containsAny(
                             searchableText,
-                            "sport", "football", "basketball",
-                            "netball", "volleyball", "tournament",
-                            "fitness", "athletics"
+                            "sport",
+                            "football",
+                            "basketball",
+                            "netball",
+                            "volleyball",
+                            "tournament",
+                            "fitness",
+                            "athletics"
                     );
                     break;
 
@@ -343,39 +404,62 @@ public class EventsFragment extends Fragment {
             }
         }
 
+        // Update the visible list.
         eventAdapter.updateEvents(filteredEvents);
 
-        tvEventCount.setText(
-                filteredEvents.size()
-                        + (filteredEvents.size() == 1
-                        ? " EVENT" : " EVENTS")
-        );
+        // Update the event count.
+        if (tvEventCount != null) {
 
+            int count = filteredEvents.size();
+
+            tvEventCount.setText(
+                    count + (count == 1 ? " EVENT" : " EVENTS")
+            );
+        }
+
+        // Show or hide the empty-state card.
         boolean noEvents = filteredEvents.isEmpty();
 
-        emptyEventsCard.setVisibility(
-                noEvents ? View.VISIBLE : View.GONE
-        );
+        if (emptyEventsCard != null) {
+            emptyEventsCard.setVisibility(
+                    noEvents ? View.VISIBLE : View.GONE
+            );
+        }
 
-        if (allEvents.isEmpty()) {
-            tvEmptyEvents.setText(
-                    "No events have been saved yet. Add an event to get started."
-            );
-        } else if (!keyword.isEmpty()
-                || !selectedCategory.equals("all")) {
-            tvEmptyEvents.setText(
-                    "No events match your search or selected category."
-            );
-        } else {
-            tvEmptyEvents.setText(
-                    "There are no events to display yet. Check back soon!"
-            );
+        // Display the appropriate empty-state message.
+        if (tvEmptyEvents != null) {
+
+            if (allEvents.isEmpty()) {
+
+                tvEmptyEvents.setText(
+                        "No events have been saved yet. "
+                                + "Add an event to get started."
+                );
+
+            } else if (!keyword.isEmpty()
+                    || !selectedCategory.equals("all")) {
+
+                tvEmptyEvents.setText(
+                        "No events match your search or selected category."
+                );
+
+            } else {
+
+                tvEmptyEvents.setText(
+                        "There are no events to display yet. "
+                                + "Check back soon!"
+                );
+            }
         }
     }
 
-    private boolean containsAny(String text, String... keywords) {
+    // Check whether text contains at least one supplied keyword.
+    private boolean containsAny(
+            String text,
+            String... keywords) {
 
         for (String keyword : keywords) {
+
             if (text.contains(keyword)) {
                 return true;
             }
@@ -384,7 +468,9 @@ public class EventsFragment extends Fragment {
         return false;
     }
 
+    // Prevent null text from causing a crash.
     private String safeText(String value) {
+
         return value == null ? "" : value;
     }
 }

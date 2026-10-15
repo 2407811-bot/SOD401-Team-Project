@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sod401_team_project.data.Event;
 import com.example.sod401_team_project.repository.EventRepository;
+import com.example.sod401_team_project.ui.theme.HomeFragment;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.card.MaterialCardView;
 

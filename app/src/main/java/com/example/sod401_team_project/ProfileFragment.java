@@ -1,3 +1,4 @@
+
 package com.example.sod401_team_project;
 
 import android.content.Intent;
@@ -13,7 +14,7 @@ import androidx.fragment.app.Fragment;
 public class ProfileFragment extends Fragment {
 
     public ProfileFragment() {
-        // Required empty public constructor
+        // Required empty public constructor.
     }
 
     @Nullable
@@ -29,12 +30,14 @@ public class ProfileFragment extends Fragment {
                 false
         );
 
+        // Return to the previous screen.
         view.findViewById(R.id.btnHome).setOnClickListener(v -> {
             requireActivity()
                     .getSupportFragmentManager()
                     .popBackStack();
         });
 
+        // Log out and return to the login screen.
         view.findViewById(R.id.btnLogout).setOnClickListener(v -> {
             Intent intent = new Intent(
                     requireActivity(),

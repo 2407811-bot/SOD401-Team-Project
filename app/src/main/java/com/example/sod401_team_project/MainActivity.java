@@ -3,10 +3,11 @@ package com.example.sod401_team_project;
 
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-
-import com.example.sod401_team_project.ui.theme.HomeFragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,10 +18,28 @@ public class MainActivity extends AppCompatActivity {
         // Load the main activity layout.
         setContentView(R.layout.activity_main);
 
-        // Show the Home screen when the app first opens MainActivity.
+        // Show Home when MainActivity first opens.
         if (savedInstanceState == null) {
             openFragment(new HomeFragment(), false);
         }
+
+        // Handle the Android Back button.
+        getOnBackPressedDispatcher().addCallback(
+                this,
+                new OnBackPressedCallback(true) {
+                    @Override
+                    public void handleOnBackPressed() {
+                        FragmentManager fragmentManager =
+                                getSupportFragmentManager();
+
+                        if (fragmentManager.getBackStackEntryCount() > 0) {
+                            fragmentManager.popBackStack();
+                        } else {
+                            finish();
+                        }
+                    }
+                }
+        );
     }
 
     // Opens a Fragment inside the main screen.
@@ -29,32 +48,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Opens a Fragment and optionally adds it to the Back stack.
-    private void openFragment(Fragment fragment, boolean addToBackStack) {
+    public void openFragment(
+            Fragment fragment,
+            boolean addToBackStack) {
 
-        androidx.fragment.app.FragmentTransaction transaction =
+        FragmentTransaction transaction =
                 getSupportFragmentManager()
-                        .beginTransaction();
-
-        transaction.replace(
-                R.id.fragment_container,
-                fragment
-        );
+                        .beginTransaction()
+                        .replace(R.id.fragment_container, fragment);
 
         if (addToBackStack) {
             transaction.addToBackStack(null);
         }
 
         transaction.commit();
-    }
-
-    @Override
-    public void onBackPressed() {
-
-        // Return to the previous Fragment if one exists.
-        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
-            getSupportFragmentManager().popBackStack();
-        } else {
-            super.onBackPressed();
-        }
     }
 }

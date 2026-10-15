@@ -14,16 +14,14 @@
         android:orientation="vertical"
         android:padding="18dp">
 
-        // HEADER BOX
-
-        // WELCOME BOX
+        <!-- CAMPUSPULSE HEADER -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/home_header_gradient"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:padding="22dp">
+            android:padding="18dp">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -59,10 +57,12 @@
 
             </LinearLayout>
 
+            <!-- PROFILE AVATAR -->
             <TextView
                 android:id="@+id/homeProfileAvatar"
-                android:layout_width="69dp"
-                android:layout_height="94dp"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:layout_marginStart="8dp"
                 android:background="@drawable/bg_oval_input"
                 android:gravity="center"
                 android:text="CP"
@@ -70,30 +70,31 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-
             <!-- LOGOUT BUTTON -->
             <ImageButton
                 android:id="@+id/btnHomeLogout"
-                android:layout_width="65dp"
-                android:layout_height="90dp"
-                android:layout_marginStart="8dp"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="4dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="Logout"
                 android:padding="10dp"
+                android:scaleType="fitCenter"
                 android:src="@drawable/ic_logout"
-                android:text=" Logout"
                 app:tint="#12355B" />
+
         </LinearLayout>
 
+        <!-- WELCOME CARD -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:background="@drawable/profile_header_gradient"
+            app:cardBackgroundColor="#E5F2FF"
             app:cardCornerRadius="24dp"
-            app:cardElevation="3dp"
-            app:strokeWidth="0dp">
-
+            app:cardElevation="2dp"
+            app:strokeColor="#D0E4F7"
+            app:strokeWidth="1dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -101,14 +102,14 @@
                 android:background="@drawable/profile_header_gradient"
                 android:orientation="vertical"
                 android:padding="22dp">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Welcome to CampusPulse!"
                     android:textColor="#12355B"
                     android:textSize="22sp"
-                    android:textStyle="bold"
-                    android:visibility="visible" />
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -117,60 +118,39 @@
                     android:lineSpacingExtra="4dp"
                     android:text="Discover events, stay updated with announcements, and connect with your campus community."
                     android:textColor="#234B70"
-                    android:textSize="14sp"
-                    android:visibility="visible" />
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
-
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- QUICK ACCESS BOX -->
-        <com.google.android.material.card.MaterialCardView
+        <!-- QUICK ACCESS HEADING -->
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            app:cardBackgroundColor="#E3F2FD"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="0dp"
-            app:strokeColor="#D0E4F7"
-            app:strokeWidth="1dp">
+            android:layout_marginTop="24dp"
+            android:text="Quick Access"
+            android:textColor="#12355B"
+            android:textSize="21sp"
+            android:textStyle="bold" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="18dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Quick Access"
-                    android:textColor="#12355B"
-                    android:textSize="19sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="Choose a section to get started."
-                    android:textColor="#56738F"
-                    android:textSize="13sp" />
-
-            </LinearLayout>
-
-        </com.google.android.material.card.MaterialCardView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Choose a section to get started."
+            android:textColor="#56738F"
+            android:textSize="13sp" />
 
         <!-- SEARCH BAR -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="54dp"
-            android:layout_marginTop="18dp"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
+            android:layout_marginTop="16dp"
             android:background="@drawable/bg_oval_input"
-            android:paddingStart="18dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
             android:paddingEnd="16dp">
 
             <EditText
@@ -180,39 +160,41 @@
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
                 android:hint="Search campus events..."
+                android:imeOptions="actionSearch"
+                android:inputType="text"
                 android:padding="0dp"
                 android:singleLine="true"
                 android:textColor="#12355B"
                 android:textColorHint="#78909C"
-                android:textSize="14sp"
-                android:inputType="text" />
+                android:textSize="14sp" />
 
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/ic_search"
-                android:contentDescription="Search"
                 android:layout_marginStart="10dp"
-                android:scaleType="fitCenter" />
+                android:contentDescription="Search"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_search" />
 
         </LinearLayout>
 
-        <!-- FIRST ROW OF FEATURE BOXES -->
+        <!-- FIRST ROW: EVENTS AND ANNOUNCEMENTS -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
-            <!-- CAMPUS EVENTS BOX -->
+            <!-- CAMPUS EVENTS -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/btnEvents"
                 android:layout_width="0dp"
                 android:layout_height="170dp"
-                android:layout_weight="1"
                 android:layout_marginEnd="7dp"
+                android:layout_weight="1"
                 android:clickable="true"
                 android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardBackgroundColor="#FFFFFF"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="2dp"
@@ -222,22 +204,22 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@drawable/bg_feature_box"
                     android:orientation="vertical"
-                    android:padding="16dp"
-                    android:background="@drawable/bg_feature_box">
+                    android:padding="15dp">
 
                     <TextView
                         android:layout_width="46dp"
                         android:layout_height="46dp"
-                        android:gravity="center"
                         android:background="@drawable/bg_feature_box"
+                        android:gravity="center"
                         android:text="📅"
                         android:textSize="25sp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="14dp"
+                        android:layout_marginTop="12dp"
                         android:text="Campus Events"
                         android:textColor="#12355B"
                         android:textSize="16sp"
@@ -255,15 +237,16 @@
 
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- ANNOUNCEMENTS BOX -->
+            <!-- ANNOUNCEMENTS -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/btnAnnouncements"
                 android:layout_width="0dp"
                 android:layout_height="170dp"
-                android:layout_weight="1"
                 android:layout_marginStart="7dp"
+                android:layout_weight="1"
                 android:clickable="true"
                 android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardBackgroundColor="#FFFFFF"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="2dp"
@@ -273,22 +256,22 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@drawable/bg_feature_box"
                     android:orientation="vertical"
-                    android:padding="16dp"
-                    android:background="@drawable/bg_feature_box">
+                    android:padding="15dp">
 
                     <TextView
                         android:layout_width="46dp"
                         android:layout_height="46dp"
-                        android:gravity="center"
                         android:background="@drawable/bg_feature_box"
+                        android:gravity="center"
                         android:text="📢"
                         android:textSize="25sp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="14dp"
+                        android:layout_marginTop="12dp"
                         android:text="Announcements"
                         android:textColor="#12355B"
                         android:textSize="16sp"
@@ -308,22 +291,23 @@
 
         </LinearLayout>
 
-        <!-- SECOND ROW OF FEATURE BOXES -->
+        <!-- SECOND ROW: PROFILE AND EXPLORE -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
             android:orientation="horizontal">
 
-            <!-- MY PROFILE BOX -->
+            <!-- MY PROFILE -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/btnProfile"
                 android:layout_width="0dp"
                 android:layout_height="170dp"
-                android:layout_weight="1"
                 android:layout_marginEnd="7dp"
+                android:layout_weight="1"
                 android:clickable="true"
                 android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardBackgroundColor="#FFFFFF"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="2dp"
@@ -333,22 +317,22 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@drawable/bg_feature_box"
                     android:orientation="vertical"
-                    android:padding="16dp"
-                    android:background="@drawable/bg_feature_box">
+                    android:padding="15dp">
 
                     <TextView
                         android:layout_width="46dp"
                         android:layout_height="46dp"
-                        android:gravity="center"
                         android:background="@drawable/bg_feature_box"
+                        android:gravity="center"
                         android:text="👤"
                         android:textSize="25sp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="14dp"
+                        android:layout_marginTop="12dp"
                         android:text="My Profile"
                         android:textColor="#12355B"
                         android:textSize="16sp"
@@ -366,15 +350,16 @@
 
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- EXPLORE CAMPUS BOX -->
+            <!-- EXPLORE CAMPUS -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/btnExploreCampus"
                 android:layout_width="0dp"
                 android:layout_height="170dp"
-                android:layout_weight="1"
                 android:layout_marginStart="7dp"
+                android:layout_weight="1"
                 android:clickable="true"
                 android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardBackgroundColor="#FFFFFF"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="2dp"
@@ -384,22 +369,22 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@drawable/bg_feature_box"
                     android:orientation="vertical"
-                    android:padding="16dp"
-                    android:background="@drawable/bg_feature_box">
+                    android:padding="15dp">
 
                     <TextView
                         android:layout_width="46dp"
                         android:layout_height="46dp"
-                        android:gravity="center"
                         android:background="@drawable/bg_feature_box"
+                        android:gravity="center"
                         android:text="🗺️"
                         android:textSize="25sp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="14dp"
+                        android:layout_marginTop="12dp"
                         android:text="Explore Campus"
                         android:textColor="#12355B"
                         android:textSize="16sp"
@@ -419,11 +404,12 @@
 
         </LinearLayout>
 
-        <!-- FOOTER BOX -->
+        <!-- FOOTER -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
             app:cardBackgroundColor="#E3F2FD"
             app:cardCornerRadius="20dp"
             app:cardElevation="0dp"
@@ -435,11 +421,11 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:padding="18dp"
+                android:letterSpacing="0.05"
                 android:text="MADE FOR YOUR CAMPUS COMMUNITY"
                 android:textColor="#56738F"
                 android:textSize="11sp"
-                android:textStyle="bold"
-                android:letterSpacing="0.05" />
+                android:textStyle="bold" />
 
         </com.google.android.material.card.MaterialCardView>
 

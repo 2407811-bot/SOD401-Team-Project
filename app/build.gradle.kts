@@ -1,7 +1,29 @@
+import java.util.Properties
 
 plugins {
     alias(libs.plugins.android.application)
 }
+
+// Read Supabase settings from local.properties
+val localProperties = Properties().apply {
+    val propertiesFile = rootProject.file("local.properties")
+
+    if (propertiesFile.exists()) {
+        propertiesFile.inputStream().use {
+            load(it)
+        }
+    }
+}
+
+val supabaseUrl = localProperties.getProperty(
+    "SUPABASE_URL",
+    ""
+)
+
+val supabaseKey = localProperties.getProperty(
+    "SUPABASE_PUBLISHABLE_KEY",
+    ""
+)
 
 android {
     namespace = "com.example.sod401_team_project"
@@ -14,7 +36,25 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner =
+            "androidx.test.runner.AndroidJUnitRunner"
+
+        // Supabase settings accessible from Java
+        buildConfigField(
+            "String",
+            "SUPABASE_URL",
+            "\"$supabaseUrl\""
+        )
+
+        buildConfigField(
+            "String",
+            "SUPABASE_PUBLISHABLE_KEY",
+            "\"$supabaseKey\""
+        )
+    }
+
+    buildFeatures {
+        buildConfig = true
     }
 
     buildTypes {

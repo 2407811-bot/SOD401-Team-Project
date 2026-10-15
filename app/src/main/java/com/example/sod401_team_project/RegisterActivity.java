@@ -1,29 +1,24 @@
-
 package com.example.sod401_team_project;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Base64;
 import android.util.Patterns;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.sod401_team_project.data.User;
-import com.example.sod401_team_project.repository.UserRepository;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 
-import java.security.SecureRandom;
-import java.security.spec.KeySpec;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import org.json.JSONObject;
 
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.PBEKeySpec;
+import java.util.Locale;
 
 public class RegisterActivity extends AppCompatActivity {
+
+    private static final String TAG = "CampusPulseRegister";
 
     private TextInputEditText etFullName;
     private TextInputEditText etEmail;
@@ -33,17 +28,11 @@ public class RegisterActivity extends AppCompatActivity {
     private MaterialButton btnRegister;
     private TextView tvLogin;
 
-    private UserRepository userRepository;
-
-    private final ExecutorService passwordExecutor =
-            Executors.newSingleThreadExecutor();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        // Connect the Java code to the existing XML views.
         etFullName = findViewById(R.id.etFullName);
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
@@ -52,31 +41,25 @@ public class RegisterActivity extends AppCompatActivity {
         btnRegister = findViewById(R.id.btnRegister);
         tvLogin = findViewById(R.id.tvLogin);
 
-        // Connect registration to the local Room database.
-        userRepository = new UserRepository(getApplicationContext());
-
         btnRegister.setOnClickListener(v -> registerUser());
-
         tvLogin.setOnClickListener(v -> openLoginScreen());
     }
 
     private void registerUser() {
 
         String fullName = getText(etFullName);
-        String email = getText(etEmail).toLowerCase(
-                java.util.Locale.ROOT
-        );
+        String email = getText(etEmail).toLowerCase(Locale.ROOT);
         String password = getText(etPassword);
         String confirmPassword = getText(etConfirmPassword);
 
-        // Validate the full name.
+        // Validate full name
         if (fullName.isEmpty()) {
             etFullName.setError("Please enter your full name");
             etFullName.requestFocus();
             return;
         }
 
-        // Validate the email.
+        // Validate email
         if (email.isEmpty()) {
             etEmail.setError("Please enter your email");
             etEmail.requestFocus();
@@ -89,7 +72,7 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
 
-        // Validate the password.
+        // Validate password
         if (password.isEmpty()) {
             etPassword.setError("Please enter a password");
             etPassword.requestFocus();
@@ -113,180 +96,99 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
         if (!password.equals(confirmPassword)) {
-            etConfirmPassword.setError(
-                    "Passwords do not match"
-            );
+            etConfirmPassword.setError("Passwords do not match");
             etConfirmPassword.requestFocus();
             return;
         }
 
-        // Prevent repeated registration taps while checking.
+        // Prevent repeated submissions
         btnRegister.setEnabled(false);
         btnRegister.setText("Creating account...");
 
-        // Check whether this email is already registered.
-        userRepository.getUserByEmail(
+        // Register directly through Supabase Auth
+        SupabaseClient.signUp(
                 email,
-                new UserRepository.OnUserLoadedListener() {
+                password,
+                fullName,
+                new SupabaseClient.Callback() {
 
                     @Override
-                    public void onSuccess(User existingUser) {
-
-                        if (existingUser != null) {
-                            runOnUiThread(() -> {
-                                btnRegister.setEnabled(true);
-                                btnRegister.setText("Register");
-
-                                etEmail.setError(
-                                        "This email is already registered"
-                                );
-                                etEmail.requestFocus();
-                            });
-
+                    public void onSuccess(JSONObject response) {
+                        if (isFinishing() || isDestroyed()) {
                             return;
                         }
 
-                        // Hash the password off the main thread.
-                        passwordExecutor.execute(() -> {
-                            try {
-                                String passwordHash =
-                                        hashPassword(password);
+                        btnRegister.setEnabled(true);
+                        btnRegister.setText("Register");
 
-                                User newUser = new User(
-                                        fullName,
-                                        email,
-                                        passwordHash,
-                                        "STUDENT"
-                                );
+                        /*
+                         * Supabase may require email confirmation.
+                         * An account can be created without returning
+                         * an active access token.
+                         */
+                        JSONObject user = response.optJSONObject("user");
 
-                                userRepository.insertUser(
-                                        newUser,
-                                        new UserRepository
-                                                .OnUserInsertedListener() {
+                        boolean accountCreated =
+                                user != null || response.has("id");
 
-                                            @Override
-                                            public void onSuccess(
-                                                    long userId) {
+                        if (!accountCreated) {
+                            Toast.makeText(
+                                    RegisterActivity.this,
+                                    "Registration response was incomplete. Please try again.",
+                                    Toast.LENGTH_LONG
+                            ).show();
 
-                                                runOnUiThread(() -> {
-                                                    btnRegister
-                                                            .setEnabled(true);
+                            Log.w(TAG, "Unexpected signup response");
+                            return;
+                        }
 
-                                                    btnRegister.setText(
-                                                            "Register"
-                                                    );
+                        boolean hasSession =
+                                response.has("access_token");
 
-                                                    Toast.makeText(
-                                                            RegisterActivity.this,
-                                                            "Account created successfully. Please log in.",
-                                                            Toast.LENGTH_LONG
-                                                    ).show();
+                        if (hasSession) {
+                            Toast.makeText(
+                                    RegisterActivity.this,
+                                    "Account created. You can now log in.",
+                                    Toast.LENGTH_LONG
+                            ).show();
+                        } else {
+                            Toast.makeText(
+                                    RegisterActivity.this,
+                                    "Account created. Check your email to confirm your account before logging in.",
+                                    Toast.LENGTH_LONG
+                            ).show();
+                        }
 
-                                                    openLoginScreen();
-                                                });
-                                            }
-
-                                            @Override
-                                            public void onError(
-                                                    String message) {
-
-                                                runOnUiThread(() -> {
-                                                    btnRegister
-                                                            .setEnabled(true);
-
-                                                    btnRegister.setText(
-                                                            "Register"
-                                                    );
-
-                                                    Toast.makeText(
-                                                            RegisterActivity.this,
-                                                            "Could not create account. Please try again.",
-                                                            Toast.LENGTH_LONG
-                                                    ).show();
-                                                });
-                                            }
-                                        }
-                                );
-
-                            } catch (Exception e) {
-                                runOnUiThread(() -> {
-                                    btnRegister.setEnabled(true);
-                                    btnRegister.setText("Register");
-
-                                    Toast.makeText(
-                                            RegisterActivity.this,
-                                            "Could not secure the password. Please try again.",
-                                            Toast.LENGTH_LONG
-                                    ).show();
-                                });
-                            }
-                        });
+                        openLoginScreen();
                     }
 
                     @Override
                     public void onError(String message) {
-                        runOnUiThread(() -> {
-                            btnRegister.setEnabled(true);
-                            btnRegister.setText("Register");
+                        if (isFinishing() || isDestroyed()) {
+                            return;
+                        }
 
-                            Toast.makeText(
-                                    RegisterActivity.this,
-                                    "Could not check the database. Please try again.",
-                                    Toast.LENGTH_LONG
-                            ).show();
-                        });
+                        btnRegister.setEnabled(true);
+                        btnRegister.setText("Register");
+
+                        Log.e(TAG, "Supabase signup failed: " + message);
+
+                        Toast.makeText(
+                                RegisterActivity.this,
+                                "Registration failed: " + message,
+                                Toast.LENGTH_LONG
+                        ).show();
                     }
                 }
         );
     }
 
-    // Read text safely from an input field.
     private String getText(TextInputEditText input) {
         if (input.getText() == null) {
             return "";
         }
 
         return input.getText().toString().trim();
-    }
-
-    // Hash the password with PBKDF2 and a random salt.
-    private String hashPassword(String password) throws Exception {
-
-        byte[] salt = new byte[16];
-        SecureRandom secureRandom = new SecureRandom();
-        secureRandom.nextBytes(salt);
-
-        int iterations = 120000;
-
-        KeySpec keySpec = new PBEKeySpec(
-                password.toCharArray(),
-                salt,
-                iterations,
-                256
-        );
-
-        SecretKeyFactory factory =
-                SecretKeyFactory.getInstance(
-                        "PBKDF2WithHmacSHA256"
-                );
-
-        byte[] hash = factory.generateSecret(keySpec).getEncoded();
-
-        ((PBEKeySpec) keySpec).clearPassword();
-
-        String encodedSalt = Base64.encodeToString(
-                salt,
-                Base64.NO_WRAP
-        );
-
-        String encodedHash = Base64.encodeToString(
-                hash,
-                Base64.NO_WRAP
-        );
-
-        return "pbkdf2$" + iterations
-                + "$" + encodedSalt
-                + "$" + encodedHash;
     }
 
     private void openLoginScreen() {
@@ -297,13 +199,5 @@ public class RegisterActivity extends AppCompatActivity {
 
         startActivity(intent);
         finish();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
-        // Stop any queued password work when this screen is destroyed.
-        passwordExecutor.shutdown();
     }
 }

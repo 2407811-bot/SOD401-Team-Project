@@ -1,58 +1,69 @@
-package com.example.sod401_team_project.ui.theme;
+package com.example.sod401_team_project;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 
-import androidx.annotation.NonNull;
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
-import com.example.sod401_team_project.EventsFragment;
-import com.example.sod401_team_project.MainActivity;
-import com.example.sod401_team_project.R;
+import com.example.sod401_team_project.ui.theme.HomeFragment;
 
-public class HomeFragment extends Fragment {
+public class MainActivity extends AppCompatActivity {
 
-    public HomeFragment() {
-        // Required empty constructor.
-    }
-
-    @Nullable
     @Override
-    public View onCreateView(
-            @NonNull LayoutInflater inflater,
-            @Nullable ViewGroup container,
-            @Nullable Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-        return inflater.inflate(
-                R.layout.fragment_home,
-                container,
-                false
+        // Load the main activity layout.
+        setContentView(R.layout.activity_main);
+
+        // Open the Home screen when the app starts.
+        if (savedInstanceState == null) {
+            openFragment(new HomeFragment(), false);
+        }
+
+        // Handle the Android Back button.
+        getOnBackPressedDispatcher().addCallback(
+                this,
+                new OnBackPressedCallback(true) {
+                    @Override
+                    public void handleOnBackPressed() {
+
+                        FragmentManager fragmentManager =
+                                getSupportFragmentManager();
+
+                        if (fragmentManager.getBackStackEntryCount() > 0) {
+                            fragmentManager.popBackStack();
+                        } else {
+                            finish();
+                        }
+                    }
+                }
         );
     }
 
-    @Override
-    public void onViewCreated(
-            @NonNull View view,
-            @Nullable Bundle savedInstanceState) {
+    // Open another screen and allow returning to the previous screen.
+    public void openFragment(Fragment fragment) {
+        openFragment(fragment, true);
+    }
 
-        super.onViewCreated(view, savedInstanceState);
+    // Open a screen with optional back-stack support.
+    public void openFragment(
+            Fragment fragment,
+            boolean addToBackStack) {
 
-        Button btnEvents = view.findViewById(R.id.btnEvents);
+        FragmentTransaction transaction =
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_container, fragment);
 
-        if (btnEvents != null) {
-
-            btnEvents.setOnClickListener(v -> {
-
-                if (getActivity() instanceof MainActivity) {
-
-                    ((MainActivity) getActivity())
-                            .openFragment(new EventsFragment());
-                }
-            });
+        if (addToBackStack) {
+            transaction.addToBackStack(null);
         }
+
+        transaction.commit();
     }
 }
